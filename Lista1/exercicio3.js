@@ -1,9 +1,5 @@
-const readline = require('readline');
-
-const input = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
+var readline = require('prompt-sync')//--global
+var input = readline();
 
 
 function area_quadrado(lado){
@@ -12,15 +8,12 @@ function area_quadrado(lado){
 }
 
 function main(){
-    input.question('Insira o valor do lado do quadrado: ', (input) => 
-    { let lado = parseFloat(input); 
+    lado = input('Insira o valor do lado do quadrado: ') 
 
-        if (!isNaN(lado)){
-            let result = area_quadrado(lado);
-            console.log("Área do quadrado: ", result);
-        }
-    });
-    
+    if (!isNaN(lado)){
+        let result = area_quadrado(lado);
+        console.log("Área do quadrado: ", result);
+    }
 }
 
 main();

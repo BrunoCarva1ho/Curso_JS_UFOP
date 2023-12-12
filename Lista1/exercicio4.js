@@ -1,10 +1,5 @@
-const readline = require('readline');
-
-const input = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
-
+var readline = require('prompt-sync')//--global
+var input = readline();
 
 function celsius(temperatura_F){
     let celsius = (temperatura_F - 32) / 1.8;
@@ -12,16 +7,12 @@ function celsius(temperatura_F){
 }
 
 function main(){
-    input.question('Insira a temperatura em Fahrenheit: ', (input) => 
-    { let temperatura_F = parseFloat(input); 
+    temperatura_F = input('Insira a temperatura em Fahrenheit: ')
 
-        if (!isNaN(temperatura_F)){
-            let result = celsius(temperatura_F);
-            console.log(temperatura_F,"graus Fahrenheit equivalem à", result,"graus Celsius");
-        }
-       
-    });
-    
+    if (!isNaN(temperatura_F)){
+        let result = celsius(temperatura_F);
+        console.log(temperatura_F,"graus Fahrenheit equivalem à", result,"graus Celsius");
+    }
 }
 
 main();
