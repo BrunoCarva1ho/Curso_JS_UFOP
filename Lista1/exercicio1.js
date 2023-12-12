@@ -23,8 +23,7 @@ function conversor() {
     } else {
       console.log('Valor inválido, tente novamente.');
     }
-
-    input.close();
+    
   });
 }
 
