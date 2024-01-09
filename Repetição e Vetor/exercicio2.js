@@ -3,7 +3,7 @@ tam=10;
 
 //Insere números no vetor
 for(i=0; i<tam; i++){
-    vetor[i] = Math.floor(Math.random() * 100);
+    vetor.push(Math.floor(Math.random() * 100));
 }
 
 function media(vetor){

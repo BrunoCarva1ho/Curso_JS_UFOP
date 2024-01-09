@@ -3,7 +3,7 @@ tam=7;
 
 //Insere as temperaturas no temperaturas
 for(i=0; i<tam; i++){
-    temperaturas[i] = Math.floor(Math.random() * 40);
+    temperaturas.push(Math.floor(Math.random() * 40));
 }
 
 function media(temperaturas){

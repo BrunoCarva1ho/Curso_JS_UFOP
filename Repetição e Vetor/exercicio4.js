@@ -14,7 +14,7 @@ for(i=0; i<tam; i++){
     }
 
     if(contem == 0){
-        vetor[i] = valor;
+        vetor.push(valor);
     } else {
         i--;
         repetiu++;
