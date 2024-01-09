@@ -3,6 +3,7 @@
 //vetor.includes() : Verifica se existe o valor
 //vetor.indexOf() : Retorna o index do valor se existente
 //vetor.pop() : Remove o último item do vetor
+//vetor.filter(valor => valor > 20) : Filtra valores para o novo vetor
 
 var vetor = [];
 tam=10;
