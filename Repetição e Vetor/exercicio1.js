@@ -1,3 +1,9 @@
+//vetor.push() : Adiciona ao final do vetor
+//vetor.unshift() : Adiciona no inicio do vetor
+//vetor.includes() : Verifica se existe o valor
+//vetor.indexOf() : Retorna o index do valor se existente
+//vetor.pop() : Remove o último item do vetor
+
 var vetor = [];
 tam=10;
 
