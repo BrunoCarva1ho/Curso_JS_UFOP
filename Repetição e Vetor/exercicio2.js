@@ -11,7 +11,7 @@ function media(vetor){
 
     for(i=0;i<tam;i++){
         console.log(vetor[i])
-        soma = soma + vetor[i];
+        soma += vetor[i];
     }
 
     return soma/tam;
