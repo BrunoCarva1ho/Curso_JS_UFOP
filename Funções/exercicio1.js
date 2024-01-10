@@ -1,7 +1,9 @@
 //for(const x of array)
 
-const arrayNomes = ['Bruno', 'Pedro', 'Leandro', 'Mariana']
+const nome = 'Bruno'
+const vogais = ['a', 'e', 'i', 'o', 'u']
 
-for(const nome of arrayNomes){
-    console.log(nome)
+for(const letra of nome){
+    const retorno = vogais.includes(letra)
+    console.log(retorno)
 }
