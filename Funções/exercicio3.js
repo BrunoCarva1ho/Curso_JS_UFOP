@@ -1,25 +1,25 @@
 var readline = require('prompt-sync')//--global
 var input = readline();
 
-function verifica_cpf(cpf){
+function verifica_cpf(cpf) {
 
-    if(cpf.length != 11){
+    if (cpf.length != 11) {
         return console.log("CPF inválido!");
     }
 
-    var cont=0;
-    var char = cpf[0];
-    for (var i=0; i<cpf.length;i++){
-        if(char == cpf[i]){
-            cont= cont + 1;
+    var cont = 0;
+    for (var i = 0; i < cpf.length; i++) {
+
+        for (var j =0; j<cpf.length; j++) {
+
+            if (cpf[i] == cpf[j]) { cont++; }
+            
+            if (cont > 9) { return console.log("CPF inválido!"); }
         }
+        cont = 0;
     }
 
-    if(cont > 9){
-        return console.log("CPF inválido!");        
-    }
-
-    return console.log("CPF válido!");  
+    return console.log("CPF válido!");
 }
 
 var cpf = input("Digite o cpf:");
