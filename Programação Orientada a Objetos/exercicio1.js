@@ -19,27 +19,23 @@ class Produto {
 
 class CarrinhoDeCompras {
 
-    constructor(carrinhoDeCompras){
+    constructor(){
         this.carrinhoDeCompras = []
-    }
-
-    adicionarProdutoNoCarrinho(produto){
-        produto = produto1;
-
-        if(produto==produto1){
-            produto1.quantidadeEmEstoque--;
-        }
+        this.valorTotal = 0;
     }
 
     exibirProdutosNoCarrinhoDeCompras(){
         console.log('Seu carrinho:' + carrinho.carrinhoDeCompras)
+        console.log('Valor total do carrinho: ', + carrinho.valorTotal)
     }
 
-    comprarProduto(nome, quantidade){
+    adicionarProdutoNoCarrinho(nome, quantidade){
         if(nome == produto1.nome){
             if(produto1.quantidadeEmEstoque > 0){
                 carrinho.carrinhoDeCompras.push(produto1.nome)
+                carrinho.valorTotal+= produto1.preco;
                 produto1.quantidadeEmEstoque-=1;
+                
             }
             else{
             console.log('Produto esgotado!\n')
@@ -48,6 +44,7 @@ class CarrinhoDeCompras {
         else if( nome == produto2.nome){
             if(produto2.quantidadeEmEstoque > 0){
                 carrinho.carrinhoDeCompras.push(produto2.nome)
+                carrinho.valorTotal+= produto2.preco;
                 produto2.quantidadeEmEstoque-=1;
             }
             else{
@@ -57,6 +54,7 @@ class CarrinhoDeCompras {
         else if(nome == produto3.nome){
             if(produto3.quantidadeEmEstoque > 0){
                 carrinho.carrinhoDeCompras.push(produto3.nome)
+                carrinho.valorTotal+= produto3.preco;
                 produto3.quantidadeEmEstoque-=1;
             }
             else{
@@ -66,15 +64,19 @@ class CarrinhoDeCompras {
         else
             console.log("Produto não encontrado!\n")
     }
+
+    calcularTotalDoCarrinho(){
+        console.log('Valor total do carrinho: R$'+ carrinho.valorTotal);
+    }
 }
 
+//PRODUTOS CRIADOS
 const produto1 = new Produto(1, 'Camisa Azul', 35, 3);
 const produto2 = new Produto(2, 'Bermuda Jeans', 45, 5);
 const produto3 = new Produto(3, 'Chinelo Comum', 25, 3)
 const carrinho = new CarrinhoDeCompras();
 
 var resposta = '';
-
 
 while(resposta != 'exit'){
     console.log('Produto / Preço / Quantidade em estoque:');
@@ -84,11 +86,14 @@ while(resposta != 'exit'){
     console.log('---')
 
     carrinho.exibirProdutosNoCarrinhoDeCompras()
+    console.log('---')
     resposta = input('Se deseja adicionar um produto ao carrinho digite o nome dele. Para sair digite exit:');
 
     if(resposta!='exit'){
-        carrinho.comprarProduto(resposta, 0);
+        carrinho.adicionarProdutoNoCarrinho(resposta, 0);
     }
+
+    
     
 }
 
