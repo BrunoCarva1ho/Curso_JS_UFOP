@@ -68,6 +68,33 @@ class CarrinhoDeCompras {
     calcularTotalDoCarrinho(){
         console.log('Valor total do carrinho: R$'+ carrinho.valorTotal);
     }
+
+    excluirProdutoDoCarrinhoDeCompras(nome){
+
+        if(carrinho.carrinhoDeCompras.length>0){
+            let index = carrinho.carrinhoDeCompras.indexOf(nome);
+            carrinho.carrinhoDeCompras[index] = '';
+        
+            if(nome == produto1.nome){
+                produto1.quantidadeEmEstoque+=1;
+                carrinho.valorTotal-= produto1.preco;
+            }
+            else if(nome == produto2.nome){
+                produto2.quantidadeEmEstoque+=1;
+                carrinho.valorTotal-= produto2.preco;
+            }
+            else if(nome == produto2.nome){
+                produto2.quantidadeEmEstoque+=1;
+                carrinho.valorTotal-= produto3.preco;
+            }
+            else
+                console.log('Produto não encontrado no carrinho!\n');
+        }
+        else{
+            console.log("\nCarrinho Vazio!\n");
+        }
+    }
+
 }
 
 //PRODUTOS CRIADOS
@@ -75,6 +102,7 @@ const produto1 = new Produto(1, 'Camisa Azul', 35, 3);
 const produto2 = new Produto(2, 'Bermuda Jeans', 45, 5);
 const produto3 = new Produto(3, 'Chinelo Comum', 25, 3)
 const carrinho = new CarrinhoDeCompras();
+// ---
 
 var resposta = '';
 
@@ -87,13 +115,17 @@ while(resposta != 'exit'){
 
     carrinho.exibirProdutosNoCarrinhoDeCompras()
     console.log('---')
-    resposta = input('Se deseja adicionar um produto ao carrinho digite o nome dele. Para sair digite exit:');
+    console.log('\nDigite 1 para adicionar um produto ao carrinho.\nDigite 2 para remover um produto do carrinho.\nDigite exit para sair.')
+    resposta = input();
 
-    if(resposta!='exit'){
-        carrinho.adicionarProdutoNoCarrinho(resposta, 0);
+    if(resposta==1){
+        nome = input("Digite o nome do produto a ser inserido: ");
+        carrinho.adicionarProdutoNoCarrinho(nome, 0);
     }
-
-    
+    else if(resposta==2){
+        nome = input("Digite o nome do produto a ser removido: ");
+        carrinho.excluirProdutoDoCarrinhoDeCompras(nome);
+    }
     
 }
 
