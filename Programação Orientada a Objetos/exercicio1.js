@@ -107,6 +107,7 @@ const carrinho = new CarrinhoDeCompras();
 var resposta = '';
 
 while(resposta != 'exit'){
+    console.log('-----> PRODUTOS DISPONIVEIS <-----')
     console.log('Produto / Preço / Quantidade em estoque:');
     console.log(produto1.nome +' / R$'+ produto1.preco +' / '+ produto1.quantidadeEmEstoque);
     console.log(produto2.nome +' / R$'+ produto2.preco +' / '+ produto2.quantidadeEmEstoque);
